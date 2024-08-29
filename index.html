@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ViaCEP API</title>
+        <title>Busca CEP</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -14,12 +14,12 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <h1>Busca CEP</h1>
-                <hr />
-            </div>
+        <main>
             <form action="">
+                <div class="form-header">
+                    <h1>Busca CEP</h1>
+                    <hr />
+                </div>
                 <div class="info">
                     <p><span>></span> Digite um CEP e veja suas informações.</p>
                     <p>
@@ -35,6 +35,28 @@
                 />
                 <button type="submit" disabled>Pesquisar</button>
             </form>
-        </div>
+            <section>
+                <div class="cep-info">
+                    <p class="info-label">CEP:</p>
+                    <p>06537-160</p>
+                </div>
+                <div class="cep-info">
+                    <p class="info-label">Bairro:</p>
+                    <p>Colinas do Anhanguera</p>
+                </div>
+                <div class="cep-info">
+                    <p class="info-label">Cidade:</p>
+                    <p>Santana de Parnaíba</p>
+                </div>
+                <div class="cep-info">
+                    <p class="info-label">Estado:</p>
+                    <p>São Paulo</p>
+                </div>
+                <div class="cep-info">
+                    <p class="info-label">País:</p>
+                    <p>Brasil</p>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
