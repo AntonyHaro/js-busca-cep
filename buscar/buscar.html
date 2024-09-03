@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Busca CEP</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="buscar.css" />
+        <script src="buscar.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <section class="form-container">
+                <form action="">
+                    <div class="form-header">
+                        <h1>Buscar CEP</h1>
+                        <!-- <hr /> -->
+                    </div>
+                    <div class="info">
+                        <p>
+                            <span>></span> Digite um CEP e veja suas
+                            informações.
+                        </p>
+                        <p>
+                            <span>></span> Um CEP deve conter apenas 8 digitos
+                            numéricos.
+                        </p>
+                    </div>
+                    <input
+                        type="text"
+                        id="cep-input"
+                        name="cep-input"
+                        placeholder="Digite o CEP:"
+                    />
+                    <button type="submit" disabled>Buscar</button>
+                    <p id="no-results"></p>
+                </form>
+                <hr />
+                <div class="render-container">
+                    <p class="cep-info-header">
+                        <span>></span> Informações do CEP:
+                    </p>
+                    <div class="cep-info">
+                        <p class="info-label">CEP:</p>
+                        <p id="cep-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Bairro:</p>
+                        <p id="bairro-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Cidade:</p>
+                        <p id="cidade-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Estado:</p>
+                        <p id="estado-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Região:</p>
+                        <p id="regiao-area"></p>
+                    </div>
+                </div>
+            </section>
+            <section class="search-container">
+                <h3>Histórico de pesquisas:</h3>
+                <div class="search-wrapper">
+                    <!-- <p><span>></span> Sem pesquisas no momento.</p> -->
+                    <div class="search">00000-000</div>
+                    <div class="search">00000-000</div>
+                    <div class="search">00000-000</div>
+                    <div class="search">00000-000</div>
+                    <div class="search">00000-000</div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
