@@ -19,7 +19,6 @@
                 <form action="">
                     <div class="form-header">
                         <h1>Buscar CEP</h1>
-                        <!-- <hr /> -->
                     </div>
                     <div class="info">
                         <p>
@@ -40,42 +39,36 @@
                     <button type="submit" disabled>Buscar</button>
                     <p id="no-results"></p>
                 </form>
-                <hr />
                 <div class="render-container">
                     <p class="cep-info-header">
                         <span>></span> Informações do CEP:
                     </p>
                     <div class="cep-info">
                         <p class="info-label">CEP:</p>
-                        <p id="cep-area"></p>
+                        <p class="cep-info-result" id="cep-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Bairro:</p>
-                        <p id="bairro-area"></p>
+                        <p class="cep-info-result" id="bairro-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Cidade:</p>
-                        <p id="cidade-area"></p>
+                        <p class="cep-info-result" id="cidade-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Estado:</p>
-                        <p id="estado-area"></p>
+                        <p class="cep-info-result" id="estado-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Região:</p>
-                        <p id="regiao-area"></p>
+                        <p class="cep-info-result" id="regiao-area"></p>
                     </div>
                 </div>
             </section>
-            <section class="search-container">
+            <section class="searches-container">
                 <h3>Histórico de pesquisas:</h3>
-                <div class="search-wrapper">
-                    <!-- <p><span>></span> Sem pesquisas no momento.</p> -->
-                    <div class="search">00000-000</div>
-                    <div class="search">00000-000</div>
-                    <div class="search">00000-000</div>
-                    <div class="search">00000-000</div>
-                    <div class="search">00000-000</div>
+                <div id="searches-wrapper">
+                    <p>- Nenhum resultado.</p>
                 </div>
             </section>
         </main>

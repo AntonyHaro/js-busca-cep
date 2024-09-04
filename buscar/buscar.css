@@ -1,7 +1,8 @@
 :root {
   --text-color: hsl(0, 0%, 27%);
-  --secondary-text-color: hsl(212, 100%, 18%);
-  --highlight-color: rgb(255, 99, 99);
+  --section-border-color: hsl(0, 0%, 71%);
+  --highlight-text-color: hsl(212, 100%, 18%);
+  --highlight-color: rgb(255, 53, 53);
   --body-background: hsl(0, 0%, 93%);
   --primary-background: hsl(0, 0%, 87%);
   --border-radius: 4px;
@@ -26,17 +27,18 @@ body {
 
 main {
   display: flex;
-  gap: 1.4rem;
+  gap: 1rem;
 }
 
 section {
+  height: 75vh;
   border-radius: 8px;
   padding: 2rem;
   transition: 0.3s;
 }
 
 section:hover {
-  border-color: hsl(0, 0%, 63%);
+  border-color: var(--text-color);
   transform: translateY(-10px);
 }
 
@@ -44,7 +46,7 @@ section:hover {
   width: 35vw;
   display: grid;
   gap: 2rem;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--section-border-color);
   border-radius: 8px;
   padding: 2rem;
   transition: 0.3s;
@@ -52,13 +54,13 @@ section:hover {
 
 .form-container:hover h1,
 .form-container:hover span {
-  color: var(--secondary-text-color);
+  color: var(--highlight-text-color);
   transform: scale(1.01);
 }
 
 h1 {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.6em;
   color: hsl(0, 0%, 40%);
   margin-bottom: 5%;
   transition: 0.3s;
@@ -96,14 +98,14 @@ input {
 
 button {
   cursor: pointer;
-  border: 1px solid var(--secondary-text-color);
-  color: var(--secondary-text-color);
+  border: 1px solid var(--highlight-text-color);
+  color: var(--highlight-text-color);
   font-size: 0.9em;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: var(--secondary-text-color);
+  background-color: var(--highlight-text-color);
   color: hsl(0, 0%, 100%);
 }
 
@@ -132,13 +134,15 @@ button:disabled {
 }
 
 .cep-info {
+  height: 35px;
   background-color: var(--primary-background);
   padding: 0.6rem;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid var(--highlight-color);
+  border-left: 3px solid gray;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 0.5s;
 }
 
 .info-label {
@@ -146,32 +150,38 @@ button:disabled {
   color: hsl(0, 0%, 35%);
 }
 
-.search-container {
+.cep-info-result {
+  font-size: 0.9em;
+}
+
+.searches-container {
   width: 20vw;
-  border: 1px dashed var(--text-color);
+  border: 1px dashed var(--section-border-color);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  overflow-y: scroll;
 }
 
-.search-container:hover {
-  width: 21vw;
-}
-
-.search-container:hover h3 {
-  color: var(--secondary-text-color);
+.searches-container:hover h3 {
+  color: var(--highlight-text-color);
   transform: scale(1.01);
 }
 
 h3 {
+  font-size: 1em;
   color: hsl(0, 0%, 40%);
   transition: 0.3s;
 }
 
-
-.search-wrapper {
+#searches-wrapper {
   display: grid;
   gap: 0.4rem;
+}
+
+#searches-wrapper p {
+  color: hsl(0, 0%, 40%);
+  font-size: 0.7em;
 }
 
 .search {

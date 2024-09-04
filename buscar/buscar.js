@@ -10,16 +10,11 @@ async function fetchData(cep) {
     const url = `https://viacep.com.br/ws/${cep}/json/`;
     try {
         const response = await fetch(url);
-        const data = await response.json();
+        if (!response.ok) throw new Error("Erro na solicitação");
 
-        if (data.erro) {
-            console.error("CEP não encontrado:", cep);
-            return null;
-        } else {
-            return data;
-        }
+        const data = await response.json();
+        return data.erro ? null : data;
     } catch (error) {
-        console.error("Erro ao buscar CEP:", error);
         return null;
     }
 }
@@ -40,7 +35,8 @@ function fillAreas(data) {
     const regiaoArea = document.getElementById("regiao-area");
 
     if (!data) {
-        noResultsArea.textContent = "CEP não encontrado.";
+        noResultsArea.textContent = "- CEP não encontrado.";
+        clearAreas([cepArea, bairroArea, cidadeArea, estadoArea, regiaoArea]);
         return;
     }
 
@@ -50,6 +46,27 @@ function fillAreas(data) {
     cidadeArea.textContent = data.localidade;
     estadoArea.textContent = data.estado;
     regiaoArea.textContent = data.regiao;
+
+    searchesArray.push(data.cep);
+    localStorage.setItem("searches", JSON.stringify(searchesArray));
+    renderSearches();
+}
+
+function clearAreas(areas) {
+    areas.forEach((area) => (area.textContent = ""));
+}
+
+function renderSearches() {
+    const searchesContainer = document.getElementById("searches-wrapper");
+    searchesContainer.innerHTML = "";
+
+    const searches = JSON.parse(localStorage.getItem("searches"));
+    searches.forEach((search) => {
+        const searchDiv = document.createElement("div");
+        searchDiv.className = "search";
+        searchDiv.textContent = search;
+        searchesContainer.appendChild(searchDiv);
+    });
 }
 
 const input = document.querySelector("input");
@@ -58,3 +75,6 @@ const form = document.querySelector("form");
 
 input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
+
+const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
+renderSearches();
