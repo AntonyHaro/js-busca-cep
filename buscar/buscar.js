@@ -28,27 +28,41 @@ async function handleSearch(event) {
 
 function fillAreas(data) {
     const noResultsArea = document.getElementById("no-results");
-    const cepArea = document.getElementById("cep-area");
+    const logradouroArea = document.getElementById("logradouro-area");
     const bairroArea = document.getElementById("bairro-area");
-    const cidadeArea = document.getElementById("cidade-area");
+    const localidadeArea = document.getElementById("localidade-area");
     const estadoArea = document.getElementById("estado-area");
     const regiaoArea = document.getElementById("regiao-area");
+    const ibgeArea = document.getElementById("ibge-area");
+    const dddArea = document.getElementById("ddd-area");
 
     if (!data) {
         noResultsArea.textContent = "- CEP não encontrado.";
-        clearAreas([cepArea, bairroArea, cidadeArea, estadoArea, regiaoArea]);
+        clearAreas([
+            logradouroArea,
+            bairroArea,
+            localidadeArea,
+            estadoArea,
+            regiaoArea,
+            ibgeArea,
+            dddArea,
+        ]);
         return;
     }
 
     noResultsArea.textContent = "";
-    cepArea.textContent = data.cep;
+    logradouroArea.textContent = data.logradouro;
     bairroArea.textContent = data.bairro;
-    cidadeArea.textContent = data.localidade;
+    localidadeArea.textContent = data.localidade;
     estadoArea.textContent = data.estado;
     regiaoArea.textContent = data.regiao;
+    ibgeArea.textContent = data.ibge;
+    dddArea.textContent = data.ddd;
 
-    searchesArray.push(data.cep);
+    const search = { cep: data.cep, logradouro: data.logradouro };
+    searchesArray.push(search);
     localStorage.setItem("searches", JSON.stringify(searchesArray));
+
     renderSearches();
 }
 
@@ -64,7 +78,13 @@ function renderSearches() {
     searches.forEach((search) => {
         const searchDiv = document.createElement("div");
         searchDiv.className = "search";
-        searchDiv.textContent = search;
+        searchDiv.textContent = search.cep;
+
+        const logradouro = document.createElement("p");
+        logradouro.className = "logradouro";
+        logradouro.textContent = search.logradouro;
+        searchDiv.appendChild(logradouro);
+
         searchesContainer.appendChild(searchDiv);
     });
 }
@@ -76,5 +96,6 @@ const form = document.querySelector("form");
 input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
 
+// localStorage.clear();
 const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
 renderSearches();

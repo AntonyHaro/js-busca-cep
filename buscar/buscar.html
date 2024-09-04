@@ -37,38 +37,50 @@
                         placeholder="Digite o CEP:"
                     />
                     <button type="submit" disabled>Buscar</button>
-                    <p id="no-results"></p>
+                    <!-- <p id="no-results">cep n enconrado</p> -->
                 </form>
                 <div class="render-container">
                     <p class="cep-info-header">
                         <span>></span> Informações do CEP:
                     </p>
                     <div class="cep-info">
-                        <p class="info-label">CEP:</p>
-                        <p class="cep-info-result" id="cep-area"></p>
-                    </div>
-                    <div class="cep-info">
                         <p class="info-label">Bairro:</p>
-                        <p class="cep-info-result" id="bairro-area"></p>
+                        <p id="bairro-area"></p>
                     </div>
                     <div class="cep-info">
-                        <p class="info-label">Cidade:</p>
-                        <p class="cep-info-result" id="cidade-area"></p>
+                        <p class="info-label">Logradouro:</p>
+                        <p id="logradouro-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Localidade:</p>
+                        <p id="localidade-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Estado:</p>
-                        <p class="cep-info-result" id="estado-area"></p>
+                        <p id="estado-area"></p>
                     </div>
                     <div class="cep-info">
                         <p class="info-label">Região:</p>
-                        <p class="cep-info-result" id="regiao-area"></p>
+                        <p id="regiao-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">IBGE:</p>
+                        <p id="ibge-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">DDD:</p>
+                        <p id="ddd-area"></p>
                     </div>
                 </div>
             </section>
             <section class="searches-container">
                 <h3>Histórico de pesquisas:</h3>
                 <div id="searches-wrapper">
-                    <p>- Nenhum resultado.</p>
+                    <!-- <p>- Nenhum resultado.</p> -->
+                    <div class="search">
+                        <p class="cep">06537-160</p>
+                        <p>Rua Oswaldo Goeldi</p>
+                    </div>
                 </div>
             </section>
         </main>
