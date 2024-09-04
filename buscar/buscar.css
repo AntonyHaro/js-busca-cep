@@ -138,7 +138,7 @@ button:disabled {
   background-color: var(--primary-background);
   padding: 0.6rem;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid gray;
+  border-left: 3px solid hsl(0, 0%, 70%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -188,7 +188,7 @@ h3 {
   background-color: var(--primary-background);
   padding: 0.5rem;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid gray;
+  border-left: 3px solid rgb(161, 161, 161);
   display: flex;
   align-items: center;
   transition: 0.2s;
@@ -197,4 +197,15 @@ h3 {
 .search:hover {
   transform: translateX(1.5%);
   border-left-color: var(--highlight-color);
+}
+
+a {
+  text-decoration: none ;
+  font-size: 0.8em;
+  color: gray;
+  margin-top: 2%;
+}
+
+a:hover {
+  text-decoration: underline;
 }
