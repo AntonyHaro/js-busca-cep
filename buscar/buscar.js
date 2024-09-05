@@ -79,16 +79,16 @@ function renderSearches() {
     const searchesContainer = document.getElementById("searches-wrapper");
     searchesContainer.innerHTML = "";
 
-    const searches = JSON.parse(localStorage.getItem("searches"));
+    const searches = JSON.parse(localStorage.getItem("searches")) || [];
     searches.forEach((search) => {
         const searchDiv = document.createElement("div");
         searchDiv.className = "search";
         searchDiv.textContent = search.cep;
 
-        const logradouro = document.createElement("p");
-        logradouro.className = "logradouro";
-        logradouro.textContent = `${search.logradouro}, ${search.bairro}, ${search.localidade}.`;
-        searchDiv.appendChild(logradouro);
+        const adress = document.createElement("p");
+        adress.className = "adress";
+        adress.textContent = `${search.logradouro}, ${search.bairro}, ${search.localidade}.`;
+        searchDiv.appendChild(adress);
 
         searchesContainer.appendChild(searchDiv);
     });
@@ -101,6 +101,5 @@ const form = document.querySelector("form");
 input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
 
-// localStorage.clear();
 const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
 renderSearches();
