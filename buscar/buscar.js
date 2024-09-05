@@ -59,7 +59,12 @@ function fillAreas(data) {
     ibgeArea.textContent = data.ibge;
     dddArea.textContent = data.ddd;
 
-    const search = { cep: data.cep, logradouro: data.logradouro };
+    const search = {
+        cep: data.cep,
+        logradouro: data.logradouro,
+        bairro: data.bairro,
+        localidade: data.localidade,
+    };
     searchesArray.push(search);
     localStorage.setItem("searches", JSON.stringify(searchesArray));
 
@@ -82,7 +87,7 @@ function renderSearches() {
 
         const logradouro = document.createElement("p");
         logradouro.className = "logradouro";
-        logradouro.textContent = search.logradouro;
+        logradouro.textContent = `${search.logradouro}, ${search.bairro}, ${search.localidade}.`;
         searchDiv.appendChild(logradouro);
 
         searchesContainer.appendChild(searchDiv);

@@ -19,51 +19,30 @@
 body {
   background-color: var(--body-background);
   height: 100vh;
-  width: 100vw;
-  font-size: 16px;
-  display: grid;
-  place-content: center;
-  transition: 0.3;
+  font-size: 14px;
 }
 
 main {
-  display: flex;
-  gap: 1rem;
+  padding: 5rem 5rem;
+  display: grid;
+  place-content: center;
+  gap: 4rem;
 }
 
 section {
-  height: 85vh;
-  border-radius: 8px;
-  padding: 2rem;
-  transition: 0.3s;
-}
-
-section:hover {
-  border-color: var(--text-color);
-  transform: translateY(-7px);
+  width: 50vw;
 }
 
 .form-container {
-  width: 35vw;
   display: grid;
   gap: 3rem;
-  border: 1px solid var(--section-border-color);
-  border-radius: 8px;
-  padding: 2rem;
-  transition: 0.3s;
-}
-
-.form-container:hover h1,
-.form-container:hover span {
-  color: var(--highlight-text-color);
-  transform: scale(1.01);
 }
 
 h1 {
   text-align: center;
   font-size: 1.6em;
   color: var(--secondary-text-color);
-  margin-bottom: 1rem;
+  margin-bottom: 5%;
   transition: 0.3s;
 }
 
@@ -75,7 +54,7 @@ form {
 .info {
   display: grid;
   gap: 0.2rem;
-  font-size: 0.7em;
+  font-size: 0.9em;
   margin-bottom: 2%;
 }
 
@@ -90,18 +69,18 @@ button {
   padding: 0.7rem;
   border-radius: var(--border-radius);
   transition: 0.3s;
+  font-size: 0.9em;
 }
 
 input {
   background-color: hsl(0, 0%, 97%);
-  border: 1px dashed var(--text-color);
+  border: 1px dashed var(--secondary-text-color);
 }
 
 button {
   cursor: pointer;
   border: 1px solid var(--highlight-text-color);
   color: var(--highlight-text-color);
-  font-size: 0.9em;
   font-weight: bold;
 }
 
@@ -130,7 +109,8 @@ button:disabled {
 }
 
 .cep-info-header {
-  font-size: 0.8em;
+  font-size: 0.9em;
+  margin-bottom: 1%;
 }
 
 .cep-info {
@@ -153,17 +133,9 @@ button:disabled {
 }
 
 .searches-container {
-  width: 20vw;
-  border: 1px solid var(--section-border-color);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  overflow-y: scroll;
-}
-
-.searches-container:hover h3 {
-  color: var(--highlight-text-color);
-  transform: scale(1.01);
 }
 
 h3 {
@@ -189,12 +161,12 @@ h3 {
 }
 
 .search:hover {
-  transform: translateX(1.5%);
+  transform: translateX(5px);
   border-left-color: var(--highlight-color);
 }
 
 .search .logradouro {
-  font-size: 0.7em;
+  font-size: 0.8em;
   color: var(--secondary-text-color);
 }
 

@@ -26,8 +26,9 @@
                             informações.
                         </p>
                         <p>
-                            <span>></span> Um CEP deve conter apenas 8 digitos
-                            numéricos.
+                            <span>></span> O CEP digitado deve ter 8 digitos
+                            numéricos e estar no modelo "XXXXX-XXX" ou
+                            "XXXXXXXX".
                         </p>
                     </div>
                     <input
@@ -37,7 +38,7 @@
                         placeholder="Digite o CEP:"
                     />
                     <button type="submit" disabled>Buscar</button>
-                    <!-- <p id="no-results">cep n enconrado</p> -->
+                    <p id="no-results"></p>
                 </form>
                 <div class="render-container">
                     <p class="cep-info-header">
@@ -71,6 +72,9 @@
                         <p class="info-label">DDD:</p>
                         <p id="ddd-area"></p>
                     </div>
+                    <a href="../pesquisar/pesquisar.html"
+                        >> pesquisar por endereço</a
+                    >
                 </div>
             </section>
             <section class="searches-container">
@@ -84,6 +88,5 @@
                 </div>
             </section>
         </main>
-        <a href="../pesquisar/pesquisar.html">> pesquisar por endereço</a>
     </body>
 </html>
