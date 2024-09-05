@@ -1,9 +1,10 @@
 :root {
   --text-color: hsl(0, 0%, 27%);
   --secondary-text-color: hsl(0, 0%, 47%);
-  --section-border-color: hsl(0, 0%, 71%);
+  --light-text-color: hsl(0, 0%, 67%);
+  --search-border-color: hsl(0, 0%, 71%);
   --highlight-text-color: hsl(212, 100%, 18%);
-  --highlight-color: hsl(0, 100%, 60%);
+  --error-color: hsl(0, 100%, 60%);
   --body-background: hsl(0, 0%, 93%);
   --primary-background: hsl(0, 0%, 87%);
   --border-radius: 4px;
@@ -20,7 +21,7 @@
 body {
   background-color: var(--body-background);
   height: 100vh;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 main {
@@ -31,7 +32,7 @@ main {
 }
 
 section {
-  width: 60vw;
+  width: 65vw;
 }
 
 .form-container {
@@ -42,7 +43,7 @@ section {
 h1 {
   font-size: 1.6em;
   color: var(--highlight-text-color);
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   transition: 0.3s;
 }
 
@@ -68,7 +69,6 @@ button {
   outline: none;
   padding: 0.7rem;
   border-radius: var(--border-radius);
-  transition: 0.3s;
   font-size: 0.9em;
 }
 
@@ -78,30 +78,43 @@ input {
 }
 
 button {
-  cursor: pointer;
-  border: 1px solid var(--highlight-text-color);
-  color: var(--highlight-text-color);
-  font-weight: bold;
+  font-weight: bolder;
+  background-color: var(--highlight-text-color);
+  color: white;
+  transition: 0.3s;
+  border: none;
 }
 
 button:hover {
-  background-color: var(--highlight-text-color);
-  color: white;
+  cursor: pointer;
 }
 
 button:disabled {
   background-color: hsl(213, 18%, 88%);
-  border: 1px solid hsl(215, 6%, 63%);
   color: hsl(215, 6%, 63%);
   cursor: auto;
 }
 
 #no-results {
   font-size: 0.8em;
-  color: var(--highlight-color);
+  color: var(--error-color);
 }
 
-.render-container {
+a {
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--secondary-text-color);
+  font-size: 0.8em;
+  margin-top: 1%;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#render-container {
   border-radius: var(--border-radius);
   display: grid;
   gap: 0.5rem;
@@ -117,7 +130,7 @@ button:disabled {
   background-color: var(--primary-background);
   padding: 0.6rem;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid var(--secondary-text-color);
+  border-left: 3px solid var(--light-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,7 +142,7 @@ button:disabled {
 }
 
 .info-label {
-  color: var(--secondary-text-color);
+  color: var(--light-text-color);
 }
 
 nav {
@@ -149,22 +162,23 @@ h3 {
 
 #searches-wrapper {
   display: grid;
-  /* grid-template-columns: repeat(4, 1fr); */
   gap: 0.5rem;
 }
 
 .search {
   padding: 0.5rem;
-  border: 1px solid var(--section-border-color);
-  border-left: 5px solid var(--section-border-color);
+  border: 1px solid var(--search-border-color);
+  border-left: 5px solid var(--search-border-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   transition: 0.2s;
+  color: var(--highlight-text-color);
 }
 
 .search:hover {
+  cursor: pointer;
   transform: translateX(5px);
   border-color: var(--highlight-text-color);
 }
@@ -174,13 +188,6 @@ h3 {
   color: var(--secondary-text-color);
 }
 
-a {
-  text-decoration: none;
-  font-size: 0.95em;
-  color: var(--secondary-text-color);
-  margin-top: 1%;
-}
-
-a:hover {
-  text-decoration: underline;
+.no-searches {
+  color: var(--light-text-color);
 }

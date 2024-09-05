@@ -26,7 +26,7 @@ async function handleSearch(event) {
     fillAreas(data);
 }
 
-function fillAreas(data) {
+function fillAreas(data, alreadySearched) {
     const noResultsArea = document.getElementById("no-results");
     const logradouroArea = document.getElementById("logradouro-area");
     const bairroArea = document.getElementById("bairro-area");
@@ -59,16 +59,26 @@ function fillAreas(data) {
     ibgeArea.textContent = data.ibge;
     dddArea.textContent = data.ddd;
 
+    if (!alreadySearched) {
+        setLocalStorageSearch(
+            data.cep,
+            data.logradouro,
+            data.bairro,
+            data.localidade
+        );
+        renderSearches();
+    }
+}
+
+function setLocalStorageSearch(cep, logradouro, bairro, localidade) {
     const search = {
-        cep: data.cep,
-        logradouro: data.logradouro,
-        bairro: data.bairro,
-        localidade: data.localidade,
+        cep: cep,
+        logradouro: logradouro,
+        bairro: bairro,
+        localidade: localidade,
     };
     searchesArray.push(search);
     localStorage.setItem("searches", JSON.stringify(searchesArray));
-
-    renderSearches();
 }
 
 function clearAreas(areas) {
@@ -76,22 +86,34 @@ function clearAreas(areas) {
 }
 
 function renderSearches() {
+    const searches = JSON.parse(localStorage.getItem("searches")) || [];
+    if (searches.length === 0) return;
+
     const searchesContainer = document.getElementById("searches-wrapper");
     searchesContainer.innerHTML = "";
 
-    const searches = JSON.parse(localStorage.getItem("searches")) || [];
     searches.forEach((search) => {
-        const searchDiv = document.createElement("div");
-        searchDiv.className = "search";
-        searchDiv.textContent = search.cep;
+        const searchContainer = document.createElement("a");
+        searchContainer.className = "search";
+        searchContainer.textContent = search.cep;
+        searchContainer.href = "#";
 
         const adress = document.createElement("p");
         adress.className = "adress";
         adress.textContent = `${search.logradouro}, ${search.bairro}, ${search.localidade}.`;
-        searchDiv.appendChild(adress);
+        searchContainer.appendChild(adress);
 
-        searchesContainer.appendChild(searchDiv);
+        searchContainer.addEventListener("click", () => {
+            handleSearchClick(search.cep);
+        });
+
+        searchesContainer.appendChild(searchContainer);
     });
+}
+
+async function handleSearchClick(cep) {
+    const data = await fetchData(cep);
+    fillAreas(data, true);
 }
 
 const input = document.querySelector("input");
@@ -101,5 +123,6 @@ const form = document.querySelector("form");
 input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
 
+localStorage.clear();
 const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
 renderSearches();
