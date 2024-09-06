@@ -1,23 +1,3 @@
-:root {
-  --text-color: hsl(0, 0%, 27%);
-  --secondary-text-color: hsl(0, 0%, 47%);
-  --light-text-color: hsl(0, 0%, 67%);
-  --search-border-color: hsl(0, 0%, 71%);
-  --highlight-text-color: hsl(212, 100%, 18%);
-  --error-color: hsl(0, 100%, 60%);
-  --body-background: hsl(0, 0%, 93%);
-  --primary-background: hsl(0, 0%, 87%);
-  --border-radius: 3px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "JetBrains Mono", monospace;
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--body-background);
   height: 100vh;

@@ -24,8 +24,6 @@ async function fetchData(cep) {
         const data = await response.json();
         return data.erro ? null : data;
     } catch (error) {
-        noResultsArea.textContent =
-            "Erro ao buscar o CEP. Tente novamente mais tarde.";
         return null;
     }
 }
@@ -39,7 +37,7 @@ async function handleSearch(event) {
 
 function fillAreas(data, alreadySearched) {
     if (!data) {
-        noResultsArea.textContent = "- CEP não encontrado.";
+        noResultsArea.textContent = "- Erro ao buscar o CEP.";
         clearAreas([
             logradouroArea,
             bairroArea,
@@ -144,5 +142,5 @@ input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
 clearSearchesButton.addEventListener("click", clearSearches);
 
-const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
+let searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
 renderSearches();

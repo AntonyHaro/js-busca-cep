@@ -1,87 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Busca CEP</title>
+        <title>Pesquisar CEP</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/theme.css" />
         <link rel="stylesheet" href="css/search-adress.css" />
         <script src="js/search-adress.js" defer></script>
     </head>
     <body>
         <main>
+            <header><h1>Consulte CEPs por endereço</h1></header>
+            <div class="info">
+                <p>
+                    <span>></span> Preencha pelo menos um campo para ver seus
+                    CEPs correspondentes.
+                </p>
+                <p>
+                    <span>></span> O resultado será ordenado pela proximidade do
+                    nome do logradouro e possui limite máximo de 50 CEPs.
+                </p>
+                <p>
+                    <span>></span> Quanto mais específico os parâmentros de
+                    entrada maior será a precisão do resultado.
+                </p>
+            </div>
             <section class="form-container">
                 <form action="">
-                    <div class="form-header">
-                        <h1>Buscar CEP por endereço</h1>
-                    </div>
-                    <div class="info">
-                        <p>
-                            > Preencha os campos para obter CEPs
-                            correspondentes.
-                        </p>
-                        <p>
-                            > Mínimo de um campo preenchido para efetuar a
-                            busca.
-                        </p>
-                        <p>> Máximo de 50 CEps exibidos por busca.</p>
-                    </div>
-                    <input
-                        type="text"
-                        id="cep-input"
-                        name="cep-input"
-                        placeholder="Digite o CEP:"
-                    />
-                    <button type="submit" disabled>Buscar</button>
-                    <p id="no-results"></p>
-                </form>
-                <div id="render-container">
-                    <p class="cep-info-header">> Informações do CEP:</p>
-                    <div class="cep-info">
-                        <p class="info-label">Bairro:</p>
-                        <p id="bairro-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Logradouro:</p>
-                        <p id="logradouro-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Localidade:</p>
-                        <p id="localidade-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Estado:</p>
-                        <p id="estado-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Região:</p>
-                        <p id="regiao-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">IBGE:</p>
-                        <p id="ibge-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">DDD:</p>
-                        <p id="ddd-area"></p>
-                    </div>
+                    <label for="uf"
+                        >Selecione o estado (UF):
+                        <select id="uf" name="uf">
+                            <option value="AC">Acre (AC)</option>
+                            <option value="AL">Alagoas (AL)</option>
+                            <option value="AP">Amapá (AP)</option>
+                            <option value="AM">Amazonas (AM)</option>
+                            <option value="BA">Bahia (BA)</option>
+                            <option value="CE">Ceará (CE)</option>
+                            <option value="DF">Distrito Federal (DF)</option>
+                            <option value="ES">Espírito Santo (ES)</option>
+                            <option value="GO">Goiás (GO)</option>
+                            <option value="MA">Maranhão (MA)</option>
+                            <option value="MT">Mato Grosso (MT)</option>
+                            <option value="MS">Mato Grosso do Sul (MS)</option>
+                            <option value="MG">Minas Gerais (MG)</option>
+                            <option value="PA">Pará (PA)</option>
+                            <option value="PB">Paraíba (PB)</option>
+                            <option value="PR">Paraná (PR)</option>
+                            <option value="PE">Pernambuco (PE)</option>
+                            <option value="PI">Piauí (PI)</option>
+                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                            <option value="RN">Rio Grande do Norte (RN)</option>
+                            <option value="RS">Rio Grande do Sul (RS)</option>
+                            <option value="RO">Rondônia (RO)</option>
+                            <option value="RR">Roraima (RR)</option>
+                            <option value="SC">Santa Catarina (SC)</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="SE">Sergipe (SE)</option>
+                            <option value="TO">Tocantins (TO)</option>
+                        </select></label
+                    >
+
+                    <label for="cidade"
+                        >Digite a cidade:
+                        <input
+                            type="text"
+                            name="cidade"
+                            id="cidade"
+                            placeholder="cidade:"
+                        />
+                    </label>
+
+                    <label for="logradouro"
+                        >Digite o logradouro:
+                        <input
+                            type="text"
+                            name="logradouro"
+                            id="logradouro"
+                            placeholder="logradouro:"
+                    /></label>
+
+                    <button type="submit" id="search-button" disabled>
+                        Pesquisar
+                    </button>
                     <nav class="links">
-                        <a href="index.html">> pesquisar cep</a>
-                        <a href="#searches-container"
-                            >> histórico de pesquisas</a
-                        >
+                        <a href="index.html ">> pesquisar CEP</a>
                     </nav>
-                </div>
+                </form>
             </section>
             <section id="searches-container">
-                <h3>Histórico de pesquisas:</h3>
-                <div id="searches-wrapper">
-                    <p class="no-searches">- Nenhuma pesquisa feita.</p>
+                <div class="searches-container-header">
+                    <h3>Resultados da pesquisa:</h3>
+                </div>
+                <div id="ceps-wrapper">
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
+                    <div class="cep">
+                        06537-160
+                        <p class="adress">
+                            Rua Oswaldo Goeldi, Colinas do Anhanguera, Santana
+                            de Parnaíba.
+                        </p>
+                    </div>
                 </div>
             </section>
         </main>
