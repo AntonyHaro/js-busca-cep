@@ -64,7 +64,7 @@ span {
 }
 
 input,
-button {
+.search-button {
   width: 100%;
   outline: none;
   padding: 0.7rem;
@@ -77,9 +77,8 @@ input {
   border: 1px dashed var(--secondary-text-color);
 }
 
-button {
+.search-button {
   cursor: pointer;
-  display: inline-block;
   font-weight: bold;
   color: white;
   background-color: var(--highlight-text-color);
@@ -88,19 +87,19 @@ button {
   transition: all 0.3s;
 }
 
-button:not(:disabled):hover {
+.search-button:not(:disabled):hover {
   background-color: white;
   color: var(--highlight-text-color);
   border: 1px solid var(--highlight-text-color);
   box-shadow: -3px 3px 0px var(--highlight-text-color);
 }
 
-button:not(:disabled):active {
+.search-button:not(:disabled):active {
   box-shadow: none;
   transform: translateY(3px) translateX(-3px);
 }
 
-button:disabled {
+.search-button:disabled {
   background-color: hsl(213, 18%, 88%);
   color: hsl(215, 6%, 63%);
   cursor: auto;
@@ -167,8 +166,19 @@ nav {
   gap: 1.5rem;
 }
 
+.searches-container-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 h3 {
   color: var(--highlight-text-color);
+}
+
+.clear-searches {
+  height: 30px;
+  width: 30px;
+  background-color: red;
 }
 
 #searches-wrapper {

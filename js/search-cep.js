@@ -1,8 +1,17 @@
+const noResultsArea = document.getElementById("no-results");
+const logradouroArea = document.getElementById("logradouro-area");
+const bairroArea = document.getElementById("bairro-area");
+const localidadeArea = document.getElementById("localidade-area");
+const estadoArea = document.getElementById("estado-area");
+const regiaoArea = document.getElementById("regiao-area");
+const ibgeArea = document.getElementById("ibge-area");
+const dddArea = document.getElementById("ddd-area");
+
 function validateInput({ target }) {
     if (target.value.trim().length >= 8) {
-        button.removeAttribute("disabled");
+        searchButton.removeAttribute("disabled");
     } else {
-        button.setAttribute("disabled", "");
+        searchButton.setAttribute("disabled", "");
     }
 }
 
@@ -15,6 +24,8 @@ async function fetchData(cep) {
         const data = await response.json();
         return data.erro ? null : data;
     } catch (error) {
+        noResultsArea.textContent =
+            "Erro ao buscar o CEP. Tente novamente mais tarde.";
         return null;
     }
 }
@@ -27,15 +38,6 @@ async function handleSearch(event) {
 }
 
 function fillAreas(data, alreadySearched) {
-    const noResultsArea = document.getElementById("no-results");
-    const logradouroArea = document.getElementById("logradouro-area");
-    const bairroArea = document.getElementById("bairro-area");
-    const localidadeArea = document.getElementById("localidade-area");
-    const estadoArea = document.getElementById("estado-area");
-    const regiaoArea = document.getElementById("regiao-area");
-    const ibgeArea = document.getElementById("ibge-area");
-    const dddArea = document.getElementById("ddd-area");
-
     if (!data) {
         noResultsArea.textContent = "- CEP não encontrado.";
         clearAreas([
@@ -59,15 +61,13 @@ function fillAreas(data, alreadySearched) {
     ibgeArea.textContent = data.ibge;
     dddArea.textContent = data.ddd;
 
-    if (!alreadySearched) {
+    if (!alreadySearched)
         setLocalStorageSearch(
             data.cep,
             data.logradouro,
             data.bairro,
             data.localidade
         );
-        renderSearches();
-    }
 }
 
 function setLocalStorageSearch(cep, logradouro, bairro, localidade) {
@@ -79,6 +79,7 @@ function setLocalStorageSearch(cep, logradouro, bairro, localidade) {
     };
     searchesArray.push(search);
     localStorage.setItem("searches", JSON.stringify(searchesArray));
+    renderSearches();
 }
 
 function clearAreas(areas) {
@@ -93,22 +94,33 @@ function renderSearches() {
     searchesContainer.innerHTML = "";
 
     searches.forEach((search) => {
-        const searchContainer = document.createElement("a");
-        searchContainer.className = "search";
-        searchContainer.textContent = search.cep;
-        searchContainer.href = "#";
-
-        const adress = document.createElement("p");
-        adress.className = "adress";
-        adress.textContent = `${search.logradouro}, ${search.bairro}, ${search.localidade}.`;
-        searchContainer.appendChild(adress);
-
-        searchContainer.addEventListener("click", () => {
-            handleSearchClick(search.cep);
-        });
+        const searchContainer = createSearch(
+            search.cep,
+            search.logradouro,
+            search.bairro,
+            search.localidade
+        );
 
         searchesContainer.appendChild(searchContainer);
     });
+}
+
+function createSearch(cep, logradouro, bairro, localidade) {
+    const search = document.createElement("a");
+    search.className = "search";
+    search.textContent = cep;
+    search.href = "#";
+
+    const adress = document.createElement("p");
+    adress.className = "adress";
+    adress.textContent = `${logradouro}, ${bairro}, ${localidade}.`;
+    search.appendChild(adress);
+
+    search.addEventListener("click", () => {
+        handleSearchClick(cep);
+    });
+
+    return search;
 }
 
 async function handleSearchClick(cep) {
@@ -116,13 +128,21 @@ async function handleSearchClick(cep) {
     fillAreas(data, true);
 }
 
+function clearSearches() {
+    localStorage.removeItem("searches");
+    const searchesContainer = document.getElementById("searches-wrapper");
+    searchesContainer.innerHTML = "- Nenhuma pesquisa feita.";
+    searchesArray = [];
+}
+
 const input = document.querySelector("input");
-const button = document.querySelector("button");
 const form = document.querySelector("form");
+const searchButton = document.getElementById("search-button");
+const clearSearchesButton = document.getElementById("clear-searches");
 
 input.addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
+clearSearchesButton.addEventListener("click", clearSearches);
 
-localStorage.clear();
 const searchesArray = JSON.parse(localStorage.getItem("searches")) || [];
 renderSearches();

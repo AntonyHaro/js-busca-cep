@@ -33,7 +33,7 @@
                         name="cep-input"
                         placeholder="Digite o CEP:"
                     />
-                    <button type="submit" class="search-button" disabled>
+                    <button type="submit" id="search-button" disabled>
                         Buscar
                     </button>
                     <p id="no-results"></p>
@@ -81,10 +81,9 @@
             <section id="searches-container">
                 <div class="searches-container-header">
                     <h3>Histórico de pesquisas:</h3>
+                    <button id="clear-searches">Limpar tudo 🗑️</button>
                 </div>
-                <div id="searches-wrapper">
-                    <p class="no-searches">- Nenhuma pesquisa feita.</p>
-                </div>
+                <div id="searches-wrapper">- Nenhuma pesquisa feita.</div>
             </section>
         </main>
     </body>
