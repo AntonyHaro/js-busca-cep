@@ -20,8 +20,13 @@
             <header><h1>Consulte CEPs por endereço</h1></header>
             <div class="info">
                 <p>
-                    <span>></span> Preencha pelo menos um campo para ver seus
-                    CEPs correspondentes.
+                    <span>></span> Preencha todos os campos para ver seus CEPs
+                    correspondentes.
+                </p>
+                <p>
+                    <span>></span> Para os campos cidade e logradouro é
+                    necessário um número mínimo de 3 caracteres a fim de evitar
+                    buscas extremamente abrangentes.
                 </p>
                 <p>
                     <span>></span> O resultado será ordenado pela proximidade do
@@ -86,16 +91,14 @@
                             placeholder="logradouro:"
                     /></label>
 
-                    <button type="submit" id="search-button" disabled>
-                        Pesquisar
-                    </button>
+                    <button type="submit" id="search-button">Pesquisar</button>
                     <nav class="links">
                         <a href="index.html ">> pesquisar CEP</a>
                     </nav>
                 </form>
             </section>
-            <section id="searches-container">
-                <div class="searches-container-header">
+            <section id="results-container">
+                <div class="results-container-header">
                     <h3>Resultados da pesquisa:</h3>
                 </div>
                 <div id="ceps-wrapper">

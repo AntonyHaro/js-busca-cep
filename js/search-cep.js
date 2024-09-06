@@ -24,6 +24,7 @@ async function fetchData(cep) {
         const data = await response.json();
         return data.erro ? null : data;
     } catch (error) {
+            "Erro ao buscar o CEP. Tente novamente mais tarde.";
         return null;
     }
 }

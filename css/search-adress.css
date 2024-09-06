@@ -25,11 +25,8 @@ main {
   gap: 2rem;
 }
 
-section {
-  width: 65vw;
-}
-
 .form-container {
+  width: 100%;
   display: grid;
   gap: 2rem;
 }
@@ -49,7 +46,8 @@ label {
 }
 
 input,
-#search-button, select {
+#search-button,
+select {
   width: 100%;
   outline: none;
   padding: 0.4rem;
@@ -57,7 +55,8 @@ input,
   font-size: 0.9em;
 }
 
-input, select {
+input,
+select {
   background-color: hsl(0, 0%, 97%);
   border: 1px solid var(--light-text-color);
 }
@@ -114,49 +113,21 @@ nav a:hover {
   text-decoration: underline;
 }
 
-#render-container {
-  border-radius: var(--border-radius);
-  display: grid;
-  gap: 0.5rem;
-  transition: 0.3s;
-}
-
-.cep-info-header {
-  font-size: 0.9em;
-}
-
-.cep-info {
-  background-color: var(--primary-background);
-  padding: 0.6rem;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid var(--light-text-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.5s;
-}
-
-.cep-info p {
-  font-size: 1em;
-}
-
-.info-label {
-  color: var(--light-text-color);
-}
-
 nav {
   display: flex;
   gap: 1rem;
 }
 
-#searches-container {
+#results-container {
+  width: 100%;
+  margin-top: 4%;
   color: var(--light-text-color);
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.searches-container-header {
+.results-container-header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -164,11 +135,6 @@ nav {
 
 h3 {
   color: var(--highlight-text-color);
-}
-
-#clear-searches {
-  padding: 0.3rem;
-  border-radius: var(--border-radius);
 }
 
 #ceps-wrapper {
