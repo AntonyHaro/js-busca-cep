@@ -10,26 +10,26 @@
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="buscar.css" />
-        <script src="buscar.js" defer></script>
+        <link rel="stylesheet" href="css/search-adress.css" />
+        <script src="js/search-adress.js" defer></script>
     </head>
     <body>
         <main>
             <section class="form-container">
                 <form action="">
                     <div class="form-header">
-                        <h1>Buscar CEP</h1>
+                        <h1>Buscar CEP por endereço</h1>
                     </div>
                     <div class="info">
                         <p>
-                            <span>></span> Digite um CEP e veja suas
-                            informações.
+                            > Preencha os campos para obter CEPs
+                            correspondentes.
                         </p>
                         <p>
-                            <span>></span> O CEP digitado deve ter 8 digitos
-                            numéricos e estar no modelo "XXXXX-XXX" ou
-                            "XXXXXXXX".
+                            > Mínimo de um campo preenchido para efetuar a
+                            busca.
                         </p>
+                        <p>> Máximo de 50 CEps exibidos por busca.</p>
                     </div>
                     <input
                         type="text"
@@ -41,9 +41,7 @@
                     <p id="no-results"></p>
                 </form>
                 <div id="render-container">
-                    <p class="cep-info-header">
-                        <span>></span> Informações do CEP:
-                    </p>
+                    <p class="cep-info-header">> Informações do CEP:</p>
                     <div class="cep-info">
                         <p class="info-label">Bairro:</p>
                         <p id="bairro-area"></p>
@@ -73,9 +71,7 @@
                         <p id="ddd-area"></p>
                     </div>
                     <nav class="links">
-                        <a href="../pesquisar/pesquisar.html"
-                            >> pesquisar por endereço</a
-                        >
+                        <a href="index.html">> pesquisar cep</a>
                         <a href="#searches-container"
                             >> histórico de pesquisas</a
                         >

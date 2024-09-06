@@ -10,51 +10,80 @@
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="css/search-cep.css" />
+        <script src="js/search-cep.js  " defer></script>
     </head>
     <body>
         <main>
-            <form action="">
-                <div class="form-header">
-                    <h1>Busca CEP</h1>
-                    <hr />
+            <section class="form-container">
+                <form action="">
+                    <div class="form-header">
+                        <h1>Buscar CEP</h1>
+                    </div>
+                    <div class="info">
+                        <p>> Digite um CEP e veja suas informações.</p>
+                        <p>
+                            > O CEP digitado deve ter 8 digitos numéricos e
+                            estar no modelo "XXXXX-XXX" ou "XXXXXXXX".
+                        </p>
+                    </div>
+                    <input
+                        type="text"
+                        id="cep-input"
+                        name="cep-input"
+                        placeholder="Digite o CEP:"
+                    />
+                    <button type="submit" class="search-button" disabled>
+                        Buscar
+                    </button>
+                    <p id="no-results"></p>
+                </form>
+                <div id="render-container">
+                    <p class="cep-info-header">> Informações do CEP:</p>
+                    <div class="cep-info">
+                        <p class="info-label">Bairro:</p>
+                        <p id="bairro-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Logradouro:</p>
+                        <p id="logradouro-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Localidade:</p>
+                        <p id="localidade-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Estado:</p>
+                        <p id="estado-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">Região:</p>
+                        <p id="regiao-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">IBGE:</p>
+                        <p id="ibge-area"></p>
+                    </div>
+                    <div class="cep-info">
+                        <p class="info-label">DDD:</p>
+                        <p id="ddd-area"></p>
+                    </div>
+                    <nav class="links">
+                        <a href="search-adress.html "
+                            >> pesquisar por endereço</a
+                        >
+                        <a href="#searches-container"
+                            >> histórico de pesquisas</a
+                        >
+                    </nav>
                 </div>
-                <div class="info">
-                    <p><span>></span> Digite um CEP e veja suas informações.</p>
-                    <p>
-                        <span>></span> Um CEP deve conter apenas 8 digitos
-                        numéricos.
-                    </p>
+            </section>
+            <section id="searches-container">
+                <div class="searches-container-header">
+                    <h3>Histórico de pesquisas:</h3>
                 </div>
-                <input
-                    type="text"
-                    id="CEP"
-                    name="CEP"
-                    placeholder="Digite o CEP:"
-                />
-                <button type="submit" disabled>Pesquisar</button>
-            </form>
-            <section>
-                <div class="cep-info">
-                    <p class="info-label">CEP:</p>
-                    <p>06537-160</p>
-                </div>
-                <div class="cep-info">
-                    <p class="info-label">Bairro:</p>
-                    <p>Colinas do Anhanguera</p>
-                </div>
-                <div class="cep-info">
-                    <p class="info-label">Cidade:</p>
-                    <p>Santana de Parnaíba</p>
-                </div>
-                <div class="cep-info">
-                    <p class="info-label">Estado:</p>
-                    <p>São Paulo</p>
-                </div>
-                <div class="cep-info">
-                    <p class="info-label">País:</p>
-                    <p>Brasil</p>
+                <div id="searches-wrapper">
+                    <p class="no-searches">- Nenhuma pesquisa feita.</p>
                 </div>
             </section>
         </main>
