@@ -11,13 +11,11 @@ function validateInput() {
 
 async function fetchData(uf, cidade, logradouro) {
     const url = `https://viacep.com.br/ws/${uf}/${cidade}/${logradouro}/json/`;
-    console.log(url);
     try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Erro na solicitação");
 
         const data = await response.json();
-        console.log(data);
         return data.erro ? null : data;
     } catch (error) {
         return null;
@@ -73,4 +71,5 @@ const noResultsArea = document.getElementById("no-results");
 
 document.getElementById("cidade").addEventListener("input", validateInput);
 document.getElementById("logradouro").addEventListener("input", validateInput);
+
 form.addEventListener("submit", handleSearch);
