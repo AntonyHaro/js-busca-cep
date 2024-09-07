@@ -6,6 +6,7 @@ const estadoArea = document.getElementById("estado-area");
 const regiaoArea = document.getElementById("regiao-area");
 const ibgeArea = document.getElementById("ibge-area");
 const dddArea = document.getElementById("ddd-area");
+const ufArea = document.getElementById("uf-area");
 
 function validateInput({ target }) {
     if (target.value.trim().length >= 8) {
@@ -24,7 +25,7 @@ async function fetchData(cep) {
         const data = await response.json();
         return data.erro ? null : data;
     } catch (error) {
-            "Erro ao buscar o CEP. Tente novamente mais tarde.";
+        ("Erro ao buscar o CEP. Tente novamente mais tarde.");
         return null;
     }
 }
@@ -47,6 +48,7 @@ function fillAreas(data, alreadySearched) {
             regiaoArea,
             ibgeArea,
             dddArea,
+            ufArea,
         ]);
         return;
     }
@@ -59,6 +61,7 @@ function fillAreas(data, alreadySearched) {
     regiaoArea.textContent = data.regiao;
     ibgeArea.textContent = data.ibge;
     dddArea.textContent = data.ddd;
+    ufArea.textContent = data.uf;
 
     if (!alreadySearched)
         setLocalStorageSearch(

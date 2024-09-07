@@ -16,19 +16,17 @@
         <script src="js/search-cep.js  " defer></script>
     </head>
     <body>
+        <header><h1>Pesquisar CEP</h1></header>
         <main>
+            <section class="info">
+                <p><span>></span> Digite um CEP e veja suas informações.</p>
+                <p>
+                    <span>></span> O CEP digitado deve ter 8 digitos numéricos e
+                    estar no modelo "XXXXX-XXX" ou "XXXXXXXX".
+                </p>
+            </section>
             <section class="form-container">
                 <form action="">
-                    <div class="form-header">
-                        <h1>Buscar CEP</h1>
-                    </div>
-                    <div class="info">
-                        <p>> Digite um CEP e veja suas informações.</p>
-                        <p>
-                            > O CEP digitado deve ter 8 digitos numéricos e
-                            estar no modelo "XXXXX-XXX" ou "XXXXXXXX".
-                        </p>
-                    </div>
                     <input
                         type="text"
                         id="cep-input"
@@ -36,43 +34,51 @@
                         placeholder="Digite o CEP:"
                     />
                     <button type="submit" id="search-button" disabled>
-                        Buscar
+                        Pesquisar
                     </button>
                     <p id="no-results"></p>
                 </form>
-                <div id="render-container">
-                    <p class="cep-info-header">> Informações do CEP:</p>
-                    <div class="cep-info">
-                        <p class="info-label">Bairro:</p>
-                        <p id="bairro-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Logradouro:</p>
-                        <p id="logradouro-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Localidade:</p>
-                        <p id="localidade-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Estado:</p>
-                        <p id="estado-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">Região:</p>
-                        <p id="regiao-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">IBGE:</p>
-                        <p id="ibge-area"></p>
-                    </div>
-                    <div class="cep-info">
-                        <p class="info-label">DDD:</p>
-                        <p id="ddd-area"></p>
+                <div id="results-container">
+                    <p style="margin-bottom: 1%">
+                        <span>></span> Informações do CEP:
+                    </p>
+                    <div class="cep-info-container">
+                        <div class="cep-info">
+                            <p class="info-label">Logradouro:</p>
+                            <p id="logradouro-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">Bairro:</p>
+                            <p id="bairro-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">Localidade:</p>
+                            <p id="localidade-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">Região:</p>
+                            <p id="regiao-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">Estado:</p>
+                            <p id="estado-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">UF:</p>
+                            <p id="uf-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">IBGE:</p>
+                            <p id="ibge-area"></p>
+                        </div>
+                        <div class="cep-info">
+                            <p class="info-label">DDD:</p>
+                            <p id="ddd-area"></p>
+                        </div>
                     </div>
                     <nav class="links">
                         <a href="search-adress.html "
-                            >> pesquisar por endereço</a
+                            >> consultar CEPs por endereço</a
                         >
                         <a href="#searches-container"
                             >> histórico de pesquisas</a

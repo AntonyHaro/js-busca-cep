@@ -1,18 +1,36 @@
 body {
   background-color: var(--body-background);
-  height: 100vh;
-  font-size: 15px;
+  min-height: 100vh;
+  padding: 5rem 5rem;
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+  font-size: 14px;
+}
+
+h1 {
+  color: var(--highlight-text-color);
 }
 
 main {
-  padding: 6rem 6rem;
+  width: 70vw;
   display: grid;
   place-content: center;
-  gap: 6rem;
+  gap: 2rem;
 }
 
 section {
-  width: 65vw;
+  width: 70vw;
+}
+
+.info {
+  display: grid;
+  gap: 0.7rem;
+}
+
+span {
+  font-weight: bold;
+  color: var(--highlight-text-color);
 }
 
 .form-container {
@@ -20,25 +38,9 @@ section {
   gap: 2rem;
 }
 
-h1 {
-  color: var(--highlight-text-color);
-  margin-bottom: 2%;
-}
-
 form {
   display: grid;
   gap: 0.5rem;
-}
-
-.info {
-  display: grid;
-  gap: 0.2rem;
-  font-size: 0.9em;
-  margin-bottom: 2%;
-}
-
-span {
-  font-weight: bold;
 }
 
 input,
@@ -52,7 +54,7 @@ input,
 
 input {
   background-color: hsl(0, 0%, 97%);
-  border: 1px dashed var(--secondary-text-color);
+  border: 1px solid var(--secondary-text-color);
 }
 
 button {
@@ -88,45 +90,27 @@ button:disabled {
   color: var(--error-color);
 }
 
-a {
-  text-decoration: none;
-}
-
-nav a {
-  color: var(--secondary-text-color);
-  font-size: 0.8em;
-  margin-top: 1%;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-#render-container {
+#results-container {
   border-radius: var(--border-radius);
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   transition: 0.3s;
 }
 
-.cep-info-header {
-  font-size: 0.9em;
-  margin-bottom: 1%;
+.cep-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 
 .cep-info {
   background-color: var(--primary-background);
   padding: 0.6rem;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  border-left: 3px solid var(--light-text-color);
+  border-radius: var(--border-radius);
+  border: 1px dashed var(--light-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.5s;
-}
-
-.cep-info p {
-  font-size: 1em;
 }
 
 .info-label {
@@ -138,11 +122,25 @@ nav {
   gap: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--secondary-text-color);
+  font-size: 0.8em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 #searches-container {
   color: var(--light-text-color);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: 4%;
 }
 
 .searches-container-header {
@@ -182,6 +180,11 @@ h3 {
   cursor: pointer;
   transform: translateX(5px);
   border-color: var(--highlight-text-color);
+}
+
+.search:hover p {
+  transition: 0.2s;
+  color: var(--highlight-text-color);
 }
 
 .adress {
