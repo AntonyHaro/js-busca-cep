@@ -1,5 +1,8 @@
-function validateInput({ target }) {
-    if (target.value.trim().length >= 8) {
+function validateInput() {
+    const cidadeValue = document.getElementById("cidade").value.trim();
+    const logradouroValue = document.getElementById("logradouro").value.trim();
+
+    if (logradouroValue.length >= 3 && cidadeValue.length >= 3) {
         searchButton.removeAttribute("disabled");
     } else {
         searchButton.setAttribute("disabled", "");
@@ -31,14 +34,15 @@ async function handleSearch(event) {
 }
 
 function renderResults(data) {
-    if (!data) {
-        noResultsArea.textContent = "- Erro ao buscar o CEP.";
-        return;
-    }
-
     const cepsWrapper = document.getElementById("ceps-wrapper");
     cepsWrapper.innerHTML = "";
 
+    if (!data || data.length == 0) {
+        noResultsArea.textContent = "- Sem resultados.";
+        return;
+    }
+
+    noResultsArea.textContent = "";
     data.forEach((search) => {
         const cep = createCepContainer(
             search.cep,
@@ -46,7 +50,6 @@ function renderResults(data) {
             search.bairro,
             search.localidade
         );
-
         cepsWrapper.appendChild(cep);
     });
 }
@@ -64,9 +67,10 @@ function createCepContainer(cep, logradouro, bairro, localidade) {
     return cepContainer;
 }
 
-const input = document.querySelector("input");
 const form = document.querySelector("form");
 const searchButton = document.getElementById("search-button");
+const noResultsArea = document.getElementById("no-results");
 
-// input.addEventListener("input", validateInput);
+document.getElementById("cidade").addEventListener("input", validateInput);
+document.getElementById("logradouro").addEventListener("input", validateInput);
 form.addEventListener("submit", handleSearch);
