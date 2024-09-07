@@ -79,7 +79,7 @@ input {
   transform: translateY(3px) translateX(-3px);
 }
 
-button:disabled {
+#search-button:disabled {
   background-color: hsl(213, 18%, 88%);
   color: hsl(215, 6%, 63%);
   cursor: auto;
