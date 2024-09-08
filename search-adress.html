@@ -1,107 +1,103 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-        <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Pesquisar CEP</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-            <link
-                href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-                rel="stylesheet"
-            />
-            <link rel="stylesheet" href="css/reset.css" />
-            <link rel="stylesheet" href="css/theme.css" />
-            <link rel="stylesheet" href="css/search-adress.css" />
-            <script src="js/search-adress.js" defer></script>
-        </head>
-        <body>
-            <header><h1>Consulte CEPs por endereço</h1></header>
-            <main>
-                <section class="info">
-                    <p>
-                        <span>></span> Preencha todos os campos para ver seus CEPs
-                        correspondentes.
-                    </p>
-                    <p>
-                        <span>></span> Para os campos cidade e logradouro é
-                        necessário um número mínimo de 3 caracteres a fim de evitar
-                        buscas extremamente abrangentes.
-                    </p>
-                    <p>
-                        <span>></span> O resultado será ordenado pela proximidade do
-                        nome do logradouro e possui limite máximo de 50 CEPs.
-                    </p>
-                    <p>
-                        <span>></span> Quanto mais específico os parâmentros de
-                        entrada maior será a precisão do resultado.
-                    </p>
-                </section>
-                <section class="form-container">
-                    <form action="">
-                        <label for="uf"
-                            >Selecione o estado (UF):
-                            <select id="uf" name="uf">
-                                <option value="AC">Acre (AC)</option>
-                                <option value="AL">Alagoas (AL)</option>
-                                <option value="AP">Amapá (AP)</option>
-                                <option value="AM">Amazonas (AM)</option>
-                                <option value="BA">Bahia (BA)</option>
-                                <option value="CE">Ceará (CE)</option>
-                                <option value="DF">Distrito Federal (DF)</option>
-                                <option value="ES">Espírito Santo (ES)</option>
-                                <option value="GO">Goiás (GO)</option>
-                                <option value="MA">Maranhão (MA)</option>
-                                <option value="MT">Mato Grosso (MT)</option>
-                                <option value="MS">Mato Grosso do Sul (MS)</option>
-                                <option value="MG">Minas Gerais (MG)</option>
-                                <option value="PA">Pará (PA)</option>
-                                <option value="PB">Paraíba (PB)</option>
-                                <option value="PR">Paraná (PR)</option>
-                                <option value="PE">Pernambuco (PE)</option>
-                                <option value="PI">Piauí (PI)</option>
-                                <option value="RJ">Rio de Janeiro (RJ)</option>
-                                <option value="RN">Rio Grande do Norte (RN)</option>
-                                <option value="RS">Rio Grande do Sul (RS)</option>
-                                <option value="RO">Rondônia (RO)</option>
-                                <option value="RR">Roraima (RR)</option>
-                                <option value="SC">Santa Catarina (SC)</option>
-                                <option value="SP">São Paulo (SP)</option>
-                                <option value="SE">Sergipe (SE)</option>
-                                <option value="TO">Tocantins (TO)</option>
-                            </select></label
-                        >
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pesquisar CEP</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/theme.css" />
+        <link rel="stylesheet" href="css/search-adress.css" />
+        <script src="js/search-adress.js" defer></script>
+    </head>
+    <body>
+        <header><h1>Consulte CEPs por endereço</h1></header>
+        <main>
+            <section class="info">
+                <p>
+                    <span>></span> Preencha todos os campos para ver seus CEPs
+                    correspondentes.
+                </p>
+                <p>
+                    <span>></span> Para os campos cidade e logradouro é
+                    necessário um número mínimo de 3 caracteres a fim de evitar
+                    buscas extremamente abrangentes.
+                </p>
+                <p>
+                    <span>></span> O resultado será ordenado pela proximidade do
+                    nome do logradouro e possui limite máximo de 50 CEPs.
+                </p>
+                <p>
+                    <span>></span> Quanto mais específico os parâmentros de
+                    entrada maior será a precisão do resultado.
+                </p>
+            </section>
+            <section class="form-container">
+                <form action="">
+                    <label for="uf"
+                        >Selecione o estado (UF):
+                        <select id="uf" name="uf">
+                            <option value="AC">Acre (AC)</option>
+                            <option value="AL">Alagoas (AL)</option>
+                            <option value="AP">Amapá (AP)</option>
+                            <option value="AM">Amazonas (AM)</option>
+                            <option value="BA">Bahia (BA)</option>
+                            <option value="CE">Ceará (CE)</option>
+                            <option value="DF">Distrito Federal (DF)</option>
+                            <option value="ES">Espírito Santo (ES)</option>
+                            <option value="GO">Goiás (GO)</option>
+                            <option value="MA">Maranhão (MA)</option>
+                            <option value="MT">Mato Grosso (MT)</option>
+                            <option value="MS">Mato Grosso do Sul (MS)</option>
+                            <option value="MG">Minas Gerais (MG)</option>
+                            <option value="PA">Pará (PA)</option>
+                            <option value="PB">Paraíba (PB)</option>
+                            <option value="PR">Paraná (PR)</option>
+                            <option value="PE">Pernambuco (PE)</option>
+                            <option value="PI">Piauí (PI)</option>
+                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                            <option value="RN">Rio Grande do Norte (RN)</option>
+                            <option value="RS">Rio Grande do Sul (RS)</option>
+                            <option value="RO">Rondônia (RO)</option>
+                            <option value="RR">Roraima (RR)</option>
+                            <option value="SC">Santa Catarina (SC)</option>
+                            <option value="SP">São Paulo (SP)</option>
+                            <option value="SE">Sergipe (SE)</option>
+                            <option value="TO">Tocantins (TO)</option>
+                        </select></label
+                    >
 
-                        <label for="cidade"
-                            >Digite a cidade:
-                            <input
-                                type="text"
-                                name="cidade"
-                                id="cidade"
-                                placeholder="cidade:"
-                            />
-                        </label>
+                    <label for="cidade"
+                        >Digite a cidade:
+                        <input
+                            type="text"
+                            name="cidade"
+                            id="cidade"
+                            placeholder="cidade:"
+                        />
+                    </label>
 
-                        <label for="logradouro"
-                            >Digite o logradouro:
-                            <input
-                                type="text"
-                                name="logradouro"
-                                id="logradouro"
-                                placeholder="logradouro:"
-                        /></label>
+                    <label for="logradouro"
+                        >Digite o logradouro:
+                        <input
+                            type="text"
+                            name="logradouro"
+                            id="logradouro"
+                            placeholder="logradouro:"
+                    /></label>
 
-                        <button type="submit" id="search-button" disabled>Pesquisar</button>
-                    </form>
-                    <nav class="links">
-                        <a href="index.html">> pesquisar CEP</a>
-                    </nav>
-                </section>
-                <section id="results-container">
-                    <h3>Resultados da pesquisa:</h3>
-                    <p id="no-results">- Comece fazendo uma pesquisa.</p>
-                    <div id="ceps-wrapper"></div>
-                </section>
-            </main>
-        </body>
-    </html>
+                    <button type="submit" id="search-button" disabled>
+                        Pesquisar
+                    </button>
+                </form>
+                <nav class="links">
+                    <a href="index.html">> pesquisar CEP</a>
+                </nav>
+            </section>
+            <section id="results-container">
+                <h3>Resultados da pesquisa:</h3>
+                <p id="no-results">- Comece fazendo uma pesquisa.</p>
+                <div id="ceps-wrapper"></div>
+            </section>
+        </main>
+    </body>
+</html>
